@@ -1,3 +1,5 @@
+import confetti from "canvas-confetti";
+
 // named export
 export function todoSubmitHandler(event) {
   event.preventDefault(); // Prevent the form from submitting
@@ -31,6 +33,7 @@ export function todoSubmitHandler(event) {
 
   console.log("Form submitted!");
   // You can perform validation or other actions here
+  confetti();
 }
 
 export const PI = 22 / 7;
