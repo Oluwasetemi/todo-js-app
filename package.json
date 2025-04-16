@@ -1,0 +1,24 @@
+{
+  "name": "js-app",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oluwasetemi/todo-js-app.git"
+  },
+  "keywords": [],
+  "author": "Oluwasetemi Ojo <setemiojo@gmail.com> (https://oluwasetemi.dev/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Oluwasetemi/todo-js-app/issues"
+  },
+  "homepage": "https://github.com/Oluwasetemi/todo-js-app#readme",
+  "description": "",
+  "dependencies": {
+    "canvas-confetti": "^1.9.3"
+  }
+}

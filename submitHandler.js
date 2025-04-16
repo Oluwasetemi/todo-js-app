@@ -1,3 +1,5 @@
+// import confetti from "canvas-confetti";
+import confetti from "https://esm.sh/canvas-confetti@1.9.3";
 // named export
 export function todoSubmitHandler(event) {
   event.preventDefault(); // Prevent the form from submitting
@@ -30,6 +32,7 @@ export function todoSubmitHandler(event) {
   // todoInput.value = ""
 
   console.log("Form submitted!");
+  confetti();
   // You can perform validation or other actions here
 }
 
