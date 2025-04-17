@@ -1,10 +1,10 @@
 // 📁 sayHi.js
 function sayHi(user) {
-  alert(`Hello, ${user}!`);
+  console.log(`Hello, ${user}!`);
 }
 
 function sayBye(user) {
-  alert(`${user}, Bye!`);
+  console.log(`${user}, Bye!`);
 }
 
 export { sayHi, sayBye };

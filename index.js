@@ -1,12 +1,18 @@
 // named import
-import { todoSubmitHandler, PI } from "./submitHandler.js";
-import { sayBye, person, sayHi } from "./say.js";
+import { todoSubmitHandler } from "./src/submitHandler.js";
+import { sayBye, person, sayHi } from "./src/say.js";
+import { loadTodos } from "./src/submitHandler.js";
+console.log("✅ index.js loaded");
 // 📁 renamed import
-import { sayHi as hi, sayBye as bye, person as angel } from "./say.js";
+import { sayHi as hi, sayBye as bye, person as angel } from "./src/say.js";
 // import everything
-import * as say from "./say.js";
+import * as say from "./src/say.js";
 // default import
 // import sum from "./sum.js";
+
+//
+let todoForm = document.querySelector("#todoForm");
+let todoList = document.querySelector("#todoList");
 
 say.sayBye("bolu");
 say.sayHi("jane");
@@ -20,6 +26,7 @@ sayHi("ade");
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM contentloaded - external");
+  loadTodos(todoList);
 });
 
 window.addEventListener("load", () => {
@@ -40,7 +47,15 @@ console.log(todosDisplay);
 
 // do a querySelectorAll on all the spans inside the li and loop thru and attach an event to remove the parent(li)
 
-todoForm.addEventListener("submit", todoSubmitHandler);
+// todoForm.addEventListener("submit", todoSubmitHandler);
+// Add event listener for form submission
+if (todoForm) {
+  todoForm.addEventListener("submit", (e) =>
+    todoSubmitHandler(e, todoForm, todoList)
+  );
+} else {
+  console.warn("#todoForm element not found");
+}
 
 // other features to add to the todo app
 // 1. create
@@ -69,7 +84,7 @@ say.sayBye("John");
 // how do we import and export media files
 //
 (async function main() {
-  let sum = await import("./sum.js");
+  let sum = await import("./src/sum.js");
   console.log(sum.default(2, 5));
   todoForm.addEventListener("submit", todoSubmitHandler);
 })();

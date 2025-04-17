@@ -3,33 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
     <title>JS-APP 101</title>
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <h2>Todo App</h2>
-    <form id="todoForm" novalidate>
+    <form id="todoForm">
       <div class="form-input">
-        <label for="todo"></label>
-        <input
-          type="text"
-          name="todo"
-          id="todo"
-          placeholder="enter todo"
-          required
-          minlength="2"
-          maxlength="100"
-        />
+          <label for="todo"></label>
+          <input
+            type="text"
+            placeholder="enter new todo"
+            id="todo"
+            required
+            name="todo"
+            minlength="2"
+            maxlength="100"
+          />
       </div>
-      <button>create todo</button>
+        <button>Create Todo</button>
     </form>
-    <section class="display-todos">
-      <ol id="todosDisplay">
-        <li>Dance<span class="delete">❌</span></li>
-        <li>Eat<span class="delete">❌</span></li>
-        <li>Code<span class="delete">❌</span></li>
-      </ol>
-    </section>
+
+      <section id="displayTodo">
+        <ol id="todoList">
+          <!-- display todo item -->
+        </ol>
+      </section>
 
     <script type="module" src="./index.js"></script>
   </body>

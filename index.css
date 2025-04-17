@@ -1,16 +1,65 @@
-[data-name] {
-  color: red;
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
 }
 
-.form-input {
+input[type="text"] {
+  max-width: 350px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+input[type="text"]:focus::placeholder {
+  color: transparent;
+}
+
+#todoList {
+  margin-top: 2rem;
+ line-height: 2;
+}
+
+.deleteBtn {
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+
+[data-name] {
+  color: red;
 }
 
 button {
   margin-top: 8px;
 }
 
-.display-todos {
+/* .display-todos {
   span.delete {
     cursor: pointer;
   }
-}
+} */
