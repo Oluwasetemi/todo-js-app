@@ -15,6 +15,26 @@ export function todoSubmitHandler(event) {
   todoDeleteSpan.textContent = "❌";
   todoDeleteSpan.setAttribute("title", `delete ${todoValue.trim()}`);
 
+  const todoInput = document.getElementById('todo');
+
+  
+  if (todoInput.value === '') {
+    console.log("you can't have an empty todo")
+    return
+  };
+
+  const checkBox = document.createElement('input');
+  checkBox.type = 'checkbox';
+
+  // prepend the checkbox input before the listItems
+todoLi.prepend(checkBox)
+
+
+checkBox.addEventListener('change', () => {
+  todoLi.style.color = 'grey'
+  todoLi.style.textDecoration = "line-through"
+})
+  
   todoDeleteSpan.onclick = function () {
     todoLi.remove();
   };
