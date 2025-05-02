@@ -6,7 +6,7 @@ export function todoSubmitHandler(event) {
 
   let formData = new FormData(todoForm);
   let todoValue = formData.get("todo");
-  console.log(todoValue);
+  console.log(`Hellllooooo ${todoValue}`);
 
   const todoText = document.createTextNode(todoValue.trim());
   const todoLi = document.createElement("li");

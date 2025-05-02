@@ -1,3 +1,19 @@
+body {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background-color: hsl(0, 0%, 95%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input {
+  display: inline-block;
+}
+.delete {
+  margin-left: 10px;
+}
+
 [data-name] {
   color: red;
 }
@@ -14,3 +30,4 @@ button {
     cursor: pointer;
   }
 }
+
