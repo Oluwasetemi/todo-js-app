@@ -13,7 +13,6 @@ export function todoSubmitHandler(event) {
   // let form = event.target;
   // let todoValue = todoInput.value;
 
-
   let formData = new FormData(todoForm);
   let todoValue = formData.get("todo").trim();
   if (!todoValue) return;
@@ -24,9 +23,9 @@ export function todoSubmitHandler(event) {
   const newTodo = {
     id: Date.now(),
     text: todoValue,
+    completed: false,
   };
 
-  
   const todos = getTodosFromLocalStorage();
   // todos.push(todoValue);
   todos.push(newTodo);
@@ -51,7 +50,7 @@ export function loadTodos(todoList) {
   todos.forEach((todo) => {
     console.log("Creating list item for:", todo); // Debug
     const listItem = createListItem(todo); // now todo is an object
-    todoList.appendChild(listItem); 
+    todoList.appendChild(listItem);
   });
 }
 

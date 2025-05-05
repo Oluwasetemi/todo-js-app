@@ -1,26 +1,35 @@
+import { h } from "./createElement.js";
 import {
   saveTodoToLocalStorage,
   getTodosFromLocalStorage,
 } from "./saveTodos.js";
 
 // Function to add edit functionality to a list item
-export function addEditFunctionality(listItem, todoDeleteEl, id) {
+export function addEditFunctionality(listItem, todoDeleteEl, todo) {
   listItem.addEventListener("dblclick", () => {
-    console.log("Editing todo with id:", id); // Debug: Check the id
+    debugger;
+    console.log("Editing todo with id:", todo.id); // Debug: Check the id
 
     // Get the current text of the todo
-    const currentText = listItem.querySelector("span")?.textContent.trim() || "";
+    const currentText = todo.text;
     console.log("Current text:", currentText); // Debug: Check the current text
 
     // Create an input field for editing
-    const editInput = document.createElement("input");
-    editInput.type = "text";
-    editInput.value = currentText;
+    // const editInput = document.createElement("input");
+    // editInput.type = "text";
+    // editInput.value = currentText;
+
+    const editInput = h("input", {
+      type: "text",
+      value: currentText,
+      style: "color: red;text-align:left;padding: 8px 2px ;",
+    });
 
     // Clear the list item and add the input field
     listItem.textContent = ""; // Clear li
     listItem.appendChild(editInput);
     editInput.focus();
+    editInput.select();
 
     // Save the edited text on blur
     editInput.addEventListener("blur", () => {
@@ -29,9 +38,15 @@ export function addEditFunctionality(listItem, todoDeleteEl, id) {
 
       // Update the list item text
       const todos = getTodosFromLocalStorage();
-      const index = todos.findIndex((todo) => todo.id === id);
+      const index = todos.findIndex((eachTodo) => eachTodo.id === todo.id);
       if (index !== -1) {
-        todos[index].text = newText; // Update the text of the todo
+        const currentTodo = todos[index];
+        console.log({ currentTodo });
+        currentTodo.text = newText; // Update the text of the todo
+        currentTodo.updatedAt = Date.now();
+        console.log({ currentTodo });
+        // add current todo back to the todos
+        todos[index] = currentTodo;
         saveTodoToLocalStorage(todos); // Save the updated todos back to local storage
         console.log("Todos after update:", todos); // Debug: Check todos after update
 
@@ -39,19 +54,24 @@ export function addEditFunctionality(listItem, todoDeleteEl, id) {
         listItem.textContent = ""; // Clear li
 
         // Re-add the checkbox
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = todos[index].completed; // Set the checkbox state
+        // TODO: add name and id to the checkbox
+        const checkbox = h("input", {
+          type: "checkbox",
+          value: currentTodo?.completed ? "true" : "false",
+          checked: currentTodo?.completed, // Set the checkbox state
+        });
+
         checkbox.addEventListener("change", () => {
-          todos[index].completed = checkbox.checked;
+          currentTodo.completed = checkbox.checked;
           saveTodoToLocalStorage(todos);
           listItem.classList.toggle("completed", checkbox.checked); // Toggle the completed class
         });
+
         listItem.appendChild(checkbox);
+        console.log(listItem);
 
         // Re-add the updated text
-        const textSpan = document.createElement("span");
-        textSpan.textContent = newText;
+        const textSpan = h("span", {}, currentTodo.text);
         listItem.appendChild(textSpan);
 
         // Re-add the delete button
@@ -65,6 +85,10 @@ export function addEditFunctionality(listItem, todoDeleteEl, id) {
     editInput.addEventListener("keyup", (e) => {
       if (e.key === "Enter") {
         editInput.blur(); // Trigger blur to save the text
+      }
+      // TODO: what will happen on Escape
+      if (e.key === "Escape") {
+        console.log("Escape used");
       }
     });
   });

@@ -43,7 +43,7 @@ input[type="text"] {
   text-align: center;
 }
 input[type="text"]:focus {
-  border-color: #2c3742;;
+  border-color: #2c3742;
   outline: none;
 }
 input[type="text"]:focus::placeholder {
@@ -52,9 +52,9 @@ input[type="text"]:focus::placeholder {
 
 #todoList {
   margin-top: 2rem;
- line-height: 2;
- color: lightgray;
- list-style: none;
+  line-height: 2;
+  color: lightgray;
+  list-style: none;
 }
 
 .todo-item {
@@ -69,7 +69,7 @@ input[type="text"]:focus::placeholder {
 }
 
 button {
-  background-color: #2c3742;;
+  background-color: #2c3742;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -78,6 +78,7 @@ button {
   font-family: inherit;
   margin: 20px;
 }
+
 button:hover {
   background-color: #253e57;
 }
@@ -97,7 +98,7 @@ button:hover {
 }
 
 .todo-item input[type="checkbox"]:checked {
-  background-color: gold; /* Set background color to gold when checked */
+  background-color: green; /* Set background color to green when checked */
   border-color: gold; /* Optional: Change border color when checked */
 }
 
@@ -116,5 +117,3 @@ button:hover {
   text-decoration: line-through;
   color: gray; /* Optional: Change the text color for completed todos */
 }
-
-
