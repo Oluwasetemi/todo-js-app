@@ -1,3 +1,5 @@
+//import everything
+
 // named import
 import { todoSubmitHandler } from "./src/submitHandler.js";
 import { sayBye, person, sayHi } from "./src/say.js";
@@ -72,10 +74,14 @@ if (todoForm) {
 // component -todo app
 // react
 
-// import * as say from "./say.js";
 
-say.sayHi("John");
-say.sayBye("John");
+// import * as say from "./say.js";
+// // default import
+// // import sum from "./sum.js";
+
+// // say.sayBye("bolu");
+// // say.sayHi("jane");
+
 
 // Question: the default and the import asterisk , do they do the same thing (importing all) and then the named and renamed, just import a particular function?
 //
@@ -88,3 +94,4 @@ say.sayBye("John");
   console.log(sum.default(2, 5));
   todoForm.addEventListener("submit", todoSubmitHandler);
 })();
+
