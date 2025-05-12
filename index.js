@@ -1,46 +1,55 @@
 // named import
-import { todoSubmitHandler, PI } from "./submitHandler.js";
-import { sayBye, person, sayHi } from "./say.js";
+import { todoSubmitHandler} from "./submitHandler.js";
+// import { sayBye, person, sayHi } from "./say.js";
 // 📁 renamed import
-import { sayHi as hi, sayBye as bye, person as angel } from "./say.js";
+// import { sayHi as hi, sayBye as bye, person as angel } from "./say.js";
 // import everything
-import * as say from "./say.js";
+// import * as say from "./say.js";
 // default import
 // import sum from "./sum.js";
 
-say.sayBye("bolu");
-say.sayHi("jane");
+// say.sayBye("bolu");
+// say.sayHi("jane");
 
-hi("John"); // Hello, John!
-bye("John"); // Bye, John!
+// hi("John"); // Hello, John!
+// bye("John"); // Bye, John!
 
-console.log("Hello, JS-App 101-external");
+// console.log("Hello, JS-App 101-external");
 
-sayHi("ade");
+// sayHi("ade");
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM contentloaded - external");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   console.log("DOM contentloaded - external");
+// });
 
-window.addEventListener("load", () => {
-  console.log("Loading content - external");
-});
+// window.addEventListener("load", () => {
+//   console.log("Loading content - external");
+// });
 
-console.log(document.title);
+// console.log(document.title);
 
-document.title = "JS APP 102 as defined AltSchool Student";
+// document.title = "JS APP 102 as defined AltSchool Student";
 
-let h1 = document.querySelector(`[data-name="hOne"]`);
+// let h1 = document.querySelector(`[data-name="hOne"]`);
 
-console.log(todoForm);
+// console.log(todoForm);
 
-const todoInput = todoForm.querySelector("#todo");
-const todosDisplay = document.querySelector("section.display-todos ol");
-console.log(todosDisplay);
+// const todoInput = todoForm.querySelector("#todo");
+// const todosDisplay = document.querySelector("section.display-todos ol");
+// console.log(todosDisplay);
 
 // do a querySelectorAll on all the spans inside the li and loop thru and attach an event to remove the parent(li)
 
-todoForm.addEventListener("submit", todoSubmitHandler);
+
+const todoForm = document.getElementById("todoForm");
+const todosDisplay = document.getElementById("todosDisplay");
+
+todoForm.addEventListener("submit", (event) =>
+  todoSubmitHandler(event, todoForm, todosDisplay)
+);
+
+
+
 
 // other features to add to the todo app
 // 1. create

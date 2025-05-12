@@ -1,36 +1,46 @@
 // named export
-export function todoSubmitHandler(event) {
-  event.preventDefault(); // Prevent the form from submitting
-  // let form = event.target;
-  // let todoValue = todoInput.value;
+// handleSubmit.js
 
-  let formData = new FormData(todoForm);
-  let todoValue = formData.get("todo");
-  console.log(todoValue);
+export function todoSubmitHandler(event, todoForm, todosDisplay) {
+  event.preventDefault();
 
-  const todoText = document.createTextNode(todoValue.trim());
+  const formData = new FormData(todoForm);
+  const todoValue = formData.get("todo").trim();
+  if (!todoValue) return;
+
+  const todoText = document.createTextNode(todoValue);
   const todoLi = document.createElement("li");
+
+  const actionsDiv = document.createElement("div");
+  actionsDiv.classList.add("actions");
+
+  // DELETE BUTTON
   const todoDeleteSpan = document.createElement("span");
   todoDeleteSpan.classList.add("delete");
   todoDeleteSpan.textContent = "❌";
-  todoDeleteSpan.setAttribute("title", `delete ${todoValue.trim()}`);
-
+  todoDeleteSpan.setAttribute("title", `Delete "${todoValue}"`);
   todoDeleteSpan.onclick = function () {
     todoLi.remove();
   };
 
-  // put the text inside the li
-  todoLi.append(todoText, todoDeleteSpan);
+  // EDIT BUTTON
+  const todoEditSpan = document.createElement("span");
+  todoEditSpan.classList.add("edit");
+  todoEditSpan.textContent = "✏️";
+  todoEditSpan.setAttribute("title", `Edit "${todoValue}"`);
+  todoEditSpan.onclick = function () {
+    const newTodo = prompt("Edit your todo:", todoText.textContent);
+    if (newTodo !== null && newTodo.trim() !== "") {
+      todoText.textContent = newTodo.trim();
+    }
+  };
 
-  // append the li to the ol
+  actionsDiv.append(todoEditSpan, todoDeleteSpan);
+  todoLi.append(todoText, actionsDiv);
   todosDisplay.append(todoLi);
 
-  // clear the form after submission - set input to empty string or form reset api
   todoForm.reset();
-  // todoInput.value = ""
-
-  console.log("Form submitted!");
-  // You can perform validation or other actions here
 }
 
-export const PI = 22 / 7;
+
+// export const PI = 22 / 7;

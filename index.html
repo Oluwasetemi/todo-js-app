@@ -3,32 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS-APP 101</title>
+    <title>Todo App</title>
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <h2>Todo App</h2>
     <form id="todoForm" novalidate>
-      <div class="form-input">
-        <label for="todo"></label>
-        <input
-          type="text"
-          name="todo"
-          id="todo"
-          placeholder="enter todo"
-          required
-          minlength="2"
-          maxlength="100"
-        />
-      </div>
-      <button>create todo</button>
+      <input
+        type="text"
+        name="todo"
+        id="todo"
+        placeholder="Enter a todo item"
+        required
+        minlength="2"
+        maxlength="100"
+      />
+      <button type="submit">Add</button>
     </form>
+
     <section class="display-todos">
-      <ol id="todosDisplay">
-        <li>Dance<span class="delete">❌</span></li>
-        <li>Eat<span class="delete">❌</span></li>
-        <li>Code<span class="delete">❌</span></li>
-      </ol>
+      <ol id="todosDisplay"></ol>
     </section>
 
     <script type="module" src="./index.js"></script>
