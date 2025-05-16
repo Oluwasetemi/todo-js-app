@@ -42,11 +42,22 @@ input[type="text"] {
   font-family: inherit;
   text-align: center;
 }
+input[type="date"] {
+  max-width: 300px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  text-align: center;
+  margin-top: 10px;
+}
 input[type="text"]:focus {
   border-color: #2c3742;
   outline: none;
 }
-input[type="text"]:focus::placeholder {
+input[type="text"]:focus::placeholder,
+input[type="date"]:focus::placeholder {
   color: transparent;
 }
 
@@ -116,4 +127,14 @@ button:hover {
 .todo-item.completed {
   text-decoration: line-through;
   color: gray; /* Optional: Change the text color for completed todos */
+}
+
+@media (max-width: 600px) {
+  header {
+    width: 100%;
+    padding: 1rem;
+  }
+  main {
+    width: 100%;
+  }
 }

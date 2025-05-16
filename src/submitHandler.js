@@ -15,6 +15,8 @@ export function todoSubmitHandler(event) {
 
   let formData = new FormData(todoForm);
   let todoValue = formData.get("todo").trim();
+  let todoDate = formData.get("todoDate");
+
   if (!todoValue) return;
 
   console.log(todoValue);
@@ -23,6 +25,7 @@ export function todoSubmitHandler(event) {
   const newTodo = {
     id: Date.now(),
     text: todoValue,
+    date: todoDate,
     completed: false,
   };
 
