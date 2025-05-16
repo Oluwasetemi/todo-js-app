@@ -45,6 +45,15 @@ export function createListItem(todo) {
   listItem.appendChild(checkbox); // Add the checkbox to the list item
   listItem.appendChild(textNode);
 
+  if (todo.date) {
+    const dateSpan = h(
+      "span",
+      { style: "margin-left: 10px; color: #888;" },
+      `(${todo.date})`
+    );
+    listItem.appendChild(dateSpan);
+  }
+
   // Add delete button
   const todoDeleteEl = createDeleteButton(listItem, todo.id);
   listItem.append(todoDeleteEl);
