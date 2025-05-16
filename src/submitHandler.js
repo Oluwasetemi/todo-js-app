@@ -38,6 +38,8 @@ export function todoSubmitHandler(event) {
   // Reset the form
   todoForm.reset();
 
+  updateProgress(); // <-- Add this here
+
   console.log("Form submitted!");
   // You can perform validation or other actions here
 }
@@ -54,4 +56,24 @@ export function loadTodos(todoList) {
   });
 }
 
+
+// Function to update the progress of todos
+// This function will count the number of completed,uncompleted todos and total todos
+// and update the display accordingly.
+
+function updateProgress() {
+  const todo = document.querySelectorAll('.todo-item');
+  const completed = document.querySelectorAll('.todo-item.completed');
+  const uncompletedCount = todo.length - completed.length;
+
+  document.getElementById('completedCount').textContent = completed.length;
+  document.getElementById('uncompletedCount').textContent = uncompletedCount;
+  document.getElementById('totalCount').textContent = todo.length;
+}
+
+ updateProgress();
+
+
+
 // export const PI = 22 / 7;
+

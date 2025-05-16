@@ -117,3 +117,21 @@ button:hover {
   text-decoration: line-through;
   color: gray; /* Optional: Change the text color for completed todos */
 }
+#progress {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: hsl(210, 22%, 18%);
+  padding: 5px;
+  border-radius: 8px;
+  display:block;
+  text-align: center;
+  margin: 0 8px;
+  width: 100%;
+  
+}
+li{
+  list-style: none;
+  text-align: center;
+  padding: 5px 20px  0px 0px;
+}
