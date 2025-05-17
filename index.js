@@ -7,6 +7,8 @@ console.log("✅ index.js loaded");
 import { sayHi as hi, sayBye as bye, person as angel } from "./src/say.js";
 // import everything
 import * as say from "./src/say.js";
+// import filter function
+import filterTodoLists from "./src/utils/filterTodoLists.js";
 // default import
 // import sum from "./sum.js";
 
@@ -88,3 +90,27 @@ say.sayBye("John");
   console.log(sum.default(2, 5));
   todoForm.addEventListener("submit", todoSubmitHandler);
 })();
+
+// Function to render todo lists
+function renderTodoLists(lists) {
+  const ul = document.querySelector('#allTodoLists');
+  ul.innerHTML = "";
+  lists.forEach((list) => {
+    const li = document.createElement('li');
+    li.textContent = list.name;
+    ul.appendChild(li);
+  });
+}
+
+// initial rendering
+renderTodoLists(filterTodoLists());
+
+// Listening for search input
+document.querySelector('#searchTodoLists').addEventListener('input', (e) => {
+  const searchTerm = e.target.value;
+  const filtered = filterTodoLists(searchTerm);
+  renderTodoLists(filtered);
+
+  //Displaying the filtered lists in the console
+  console.log(filtered);
+});
