@@ -9,4 +9,10 @@ function getTodosFromLocalStorage() {
   return todos ? JSON.parse(todos) : [];
 }
 
-export { saveTodoToLocalStorage, getTodosFromLocalStorage };
+// Function to delete all todos from localStorage
+function deleteAllTodosFromLocalStorage() {
+  localStorage.removeItem("todos");
+}
+
+
+export { saveTodoToLocalStorage, getTodosFromLocalStorage, deleteAllTodosFromLocalStorage };
