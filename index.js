@@ -9,6 +9,8 @@ import { sayHi as hi, sayBye as bye, person as angel } from "./src/say.js";
 import * as say from "./src/say.js";
 // default import
 // import sum from "./sum.js";
+import { deleteAllTodosFromLocalStorage } from "./src/utils/saveTodos.js";
+
 
 //
 let todoForm = document.querySelector("#todoForm");
@@ -44,6 +46,30 @@ console.log(todoForm);
 const todoInput = todoForm.querySelector("#todo");
 const todosDisplay = document.querySelector("section.display-todos ol");
 console.log(todosDisplay);
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadTodos(todoList);
+
+  const clearBtn = document.querySelector("#clearTodos");
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      // Optional confirmation
+      if (!confirm("Are you sure you want to delete all todos?")) return;
+
+      // Remove from localStorage
+      deleteAllTodosFromLocalStorage();
+
+      // Remove from UI
+      while (todoList.firstChild) {
+        todoList.removeChild(todoList.firstChild);
+      }
+
+      console.log("✅ All todos cleared.");
+    });
+  }
+});
+
 
 // do a querySelectorAll on all the spans inside the li and loop thru and attach an event to remove the parent(li)
 
