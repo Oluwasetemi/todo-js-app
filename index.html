@@ -1,40 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      rel="stylesheet"
+    />
     <title>JS-APP 101</title>
     <link rel="stylesheet" href="./index.css" />
+    <!-- font-awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header>
       <h2>Todo App</h2>
-        <form id="todoForm">
-          <div class="form-input">
-              <label for="todo"></label>
-              <input
-                type="text"
-                placeholder="enter new todo"
-                id="todo"
-                required
-                name="todo"
-                minlength="2"
-                maxlength="100"
-              />
-          </div>
-            <button>Create Todo</button>
-        </form>
-  </header>
+      <form id="todoForm">
+        <div class="form-input">
+          <label for="todo"></label>
+          <input
+            type="text"
+            placeholder="enter new todo"
+            id="todo"
+            required
+            name="todo"
+            minlength="2"
+            maxlength="100"
+          />
+        </div>
+        <button>Create Todo</button>
+      </form>
+    </header>
 
     <main>
-        <section id="displayTodo">
-          <ol id="todoList">
-            <!-- display todo item -->
-          </ol>
-        </section>
+      <section id="displayTodo">
+        <ol id="todoList">
+          <!-- display todo item -->
+        </ol>
+      </section>
     </main>
 
     <script type="module" src="./index.js"></script>

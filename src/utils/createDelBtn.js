@@ -7,7 +7,7 @@ import {
 export function createDeleteButton(listItem, id) {
   const todoDeleteEl = document.createElement("span");
   todoDeleteEl.classList.add("deleteBtn");
-  todoDeleteEl.textContent = "🆇";
+  todoDeleteEl.innerHTML = '<i class="fas fa-trash">'; // changed delete button to icon
   todoDeleteEl.setAttribute("title", `Delete ${listItem.textContent.trim()}`);
 
   // Delete functionality
